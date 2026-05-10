@@ -1,0 +1,32 @@
+services:
+  backend:
+    image: ${DOCKER_HUB_USER}/spendnub-backend:latest
+    container_name: spendnub-backend
+    ports:
+      - "2200:2200" # Exposes NestJS API
+    env_file:
+      - .env # Pulls the secure environment variables
+    environment:
+      # Expose the dynamic host IP to the backend
+      - API_BASE_URL=http://${HOST_PUBLIC_IP}:2200
+      - FRONTEND_URL=http://${HOST_PUBLIC_IP}:3000
+    restart: unless-stopped
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION}
+        awslogs-group: /spendnub-watch/backend
+        awslogs-stream: container-logs
+
+  frontend:
+    image: ${DOCKER_HUB_USER}/spendnub-frontend:latest
+    container_name: spendnub-frontend
+    ports:
+      - "3000:3000" # Exposes Next.js UI
+    restart: unless-stopped
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ${AWS_REGION}
+        awslogs-group: /spendnub-watch/frontend
+        awslogs-stream: container-logs
