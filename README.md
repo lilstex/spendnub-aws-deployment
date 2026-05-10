@@ -1,4 +1,4 @@
-# DevOps Practical Challenge: Production-Ready Deployment
+# AWS Application Deployment Project
 
 ![Architecture Diagram](./docs/architecture.png)
 _(Please view the `docs/` folder for the high-resolution architecture diagram)._
