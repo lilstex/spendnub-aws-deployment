@@ -97,7 +97,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ### 3. Creating the Pipeline & GitHub Webhook
 
-1. On the Jenkins dashboard, click **New Item -> Pipeline** (name it `ShotNub-FullStack-Pipeline`).
+1. On the Jenkins dashboard, click **New Item -> Pipeline** (name it `SpendNub-FullStack-Pipeline`).
 2. Under **Build Triggers**, check **GitHub hook trigger for GITScm polling**.
 3. Under **Pipeline**, set Definition to **Pipeline script from SCM**, choose **Git**, and provide the repository URL. Ensure the Script Path is `Jenkinsfile`.
 4. **In GitHub:** Go to your repository **Settings -> Webhooks -> Add webhook**.
